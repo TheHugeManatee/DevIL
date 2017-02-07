@@ -56,7 +56,7 @@ ILimage *iConvertPalette(ILimage *Image, ILenum DestFormat)
 				Size = ilGetBppPal(Image->Pal.PalType);
 				for (i = 0, k = 0; i < Image->Pal.PalSize; i += Size, k += LumBpp) {
 					Resultf = 0.0f;
-					for (c = 0; c < Size; c++) {
+					for (c = 0; c < 3; c++) {
 						Resultf += Image->Pal.Palette[i + c] * LumFactor[c];
 					}
 					Temp[k] = (ILubyte)Resultf;
@@ -80,7 +80,7 @@ ILimage *iConvertPalette(ILimage *Image, ILenum DestFormat)
 				Size = ilGetBppPal(Image->Pal.PalType);
 				for (i = 0, k = 0; i < Image->Pal.PalSize; i += Size, k += LumBpp) {
 					Resultf = 0.0f;  j = 2;
-					for (c = 0; c < Size; c++, j--) {
+					for (c = 0; c < 3; c++, j--) {
 						Resultf += Image->Pal.Palette[i + c] * LumFactor[j];
 					}
 					Temp[k] = (ILubyte)Resultf;
